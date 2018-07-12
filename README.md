@@ -13,7 +13,8 @@ Name: Start-RSJob
 
 Author: Marc R Kellerman (@mkellerman)
 
-Inspired by Invoke-Parallel by RamblingCookieMonster
+Inspired by RamblingCookieMonster's Invoke-Parallel function
+
 https://github.com/RamblingCookieMonster/Invoke-Parallel
 
 ##    .EXAMPLE
