@@ -1,23 +1,23 @@
 # Invoke-Job
 
 ##    .DESCRIPTION
-        Function to control background job processing exposing additional functionalities.
+Function to control background job processing exposing additional functionalities.
 
-        Added functionalities:
-            -ImportFunctions
-            -Throttle
-            -Tmeout
+Added functionalities:
+    -ImportFunctions
+    -Throttle
+    -Tmeout
 
 ##    .NOTES
-        Name: Start-RSJob
-        Author: Marc R Kellerman (@mkellerman)
+Name: Start-RSJob
+Author: Marc R Kellerman (@mkellerman)
 
-        Inspired by Invoke-Parallel by RamblingCookieMonster
-        https://github.com/RamblingCookieMonster/Invoke-Parallel
+Inspired by Invoke-Parallel by RamblingCookieMonster
+https://github.com/RamblingCookieMonster/Invoke-Parallel
 
 ##    .EXAMPLE
 
-        Example 1: Start 5 background jobs, throttle 2 jobs in parallel, Output result from Job and use a custom function in current session.
+Example 1: Start 5 background jobs, throttle 2 jobs in parallel, Output result from Job and use a custom function in current session.
 
         function Invoke-HelloWorld { 
             Write-Warning 'Hello World'
