@@ -4,12 +4,13 @@
 Function to control background job processing exposing additional functionalities.
 
 Added functionalities:
-    -ImportFunctions
-    -Throttle
-    -Tmeout
+  * ImportFunctions
+  * Throttle
+  * Tmeout
 
 ##    .NOTES
 Name: Start-RSJob
+
 Author: Marc R Kellerman (@mkellerman)
 
 Inspired by Invoke-Parallel by RamblingCookieMonster
