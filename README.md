@@ -6,7 +6,8 @@ Added functionalities:
   * ImportFunctions
   * Throttle
   * Tmeout
-
+  * PassThru
+  
 ## Example
 
 Start 5 background jobs, throttle 2 jobs in parallel, Output result from Job and use a custom function from current session.
