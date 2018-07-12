@@ -10,6 +10,7 @@ function Invoke-Job {
             -ImportFunctions
             -Throttle
             -Tmeout
+            -PassThru
 
     .NOTES
         Name: Start-RSJob
@@ -100,7 +101,7 @@ function Invoke-Job {
 
     .EXAMPLE
 
-        Example 1: Start 5 background jobs, throttle 2 jobs in parallel, Output result from Job and use a custom function in current session.
+        Example 1: Start 5 background jobs, throttle 2 jobs in parallel, Output result from Job and use a custom function from current session.
 
         function Invoke-HelloWorld { 
             Write-Warning 'Hello World'
