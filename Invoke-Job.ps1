@@ -185,13 +185,24 @@ function Invoke-Job {
         function Invoke-StartJob {
             
             $JobParams = @{}
-                If ($ScriptBlock)     { $JobParams['ScriptBlock'] = $ScriptBlock }
-                If ($FilePath)        { $JobParams['FilePath'] = $FilePath }
-                If ($Credential)      { $JobParams['Credential'] = $Credential }
-                If ($Authentication ) { $JobParams['Authentication '] = $Authentication  }
-                If ($RunAs32)         { $JobParams['RunAs32'] = $RunAs32 }
-                If ($PSVersion )      { $JobParams['PSVersion '] = $PSVersion  }
-                If ($ArgumentList)    { $JobParams['ArgumentList'] = $ArgumentList }
+            If ($ScriptBlock)     { $JobParams['ScriptBlock'] = $ScriptBlock }
+            If ($FilePath)        { $JobParams['FilePath'] = $FilePath }
+            If ($Credential)      { $JobParams['Credential'] = $Credential }
+            If ($Authentication ) { $JobParams['Authentication '] = $Authentication  }
+            If ($RunAs32)         { $JobParams['RunAs32'] = $RunAs32 }
+            If ($PSVersion )      { $JobParams['PSVersion '] = $PSVersion  }
+            If ($ArgumentList)    { $JobParams['ArgumentList'] = $ArgumentList }
+
+            # Bring Parent scope variable into current scope
+            # Fix to using $Using variable that uses the same name than a parameter of this function.
+
+            Get-Variable -Name ScriptBlock -Scope 2 -ErrorAction SilentlyContinue    | % { Set-Variable -Scope 0 -Name $_.Name -Value $_.Value }
+            Get-Variable -Name FilePath -Scope 2 -ErrorAction SilentlyContinue       | % { Set-Variable -Scope 0 -Name $_.Name -Value $_.Value }
+            Get-Variable -Name Credential -Scope 2 -ErrorAction SilentlyContinue     | % { Set-Variable -Scope 0 -Name $_.Name -Value $_.Value }
+            Get-Variable -Name Authentication -Scope 2 -ErrorAction SilentlyContinue | % { Set-Variable -Scope 0 -Name $_.Name -Value $_.Value }
+            Get-Variable -Name RunAs32 -Scope 2 -ErrorAction SilentlyContinue        | % { Set-Variable -Scope 0 -Name $_.Name -Value $_.Value }
+            Get-Variable -Name PSVersion -Scope 2 -ErrorAction SilentlyContinue      | % { Set-Variable -Scope 0 -Name $_.Name -Value $_.Value }
+            Get-Variable -Name ArgumentList -Scope 2 -ErrorAction SilentlyContinue   | % { Set-Variable -Scope 0 -Name $_.Name -Value $_.Value }
 
             If ($JobQueue.Count) {
                 $Job = $JobQueue.Dequeue() | Start-Job -Name $JobName -InitializationScript $InitializationScript @JobParams
