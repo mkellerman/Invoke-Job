@@ -9,11 +9,11 @@ function Invoke-Job {
         Added functionalities:
             -ImportFunctions
             -Throttle
-            -Tmeout
+            -Timeout
             -PassThru
 
     .NOTES
-        Name: Start-RSJob
+        Name: Invoke-Job
         Author: Marc R Kellerman (@mkellerman)
 
         Inspired by Invoke-Parallel by RamblingCookieMonster
